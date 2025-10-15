@@ -29,6 +29,12 @@ public class NumberUtils {
         return -1;
     }
 
+    /**
+     * Decides if two arrays are identical
+     * @param a first array
+     * @param b second array
+     * @return true if identical, false otherwise
+     */
 
     public static boolean isIdentical(int[] a, int[] b) {
         if (a.length != b.length) return false;
