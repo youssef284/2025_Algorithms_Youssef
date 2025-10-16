@@ -74,6 +74,13 @@ public class NumberUtils {
         return true;
     }
 
+
+    /**
+     * if array a is a subset o array b
+     * @param A first array
+     * @param B second array
+     * @return true if a is a subset of b, false in not
+     */
     public static boolean isSubset(int[] A, int[] B) {
         if (A.length >= B.length) {
             return false;
