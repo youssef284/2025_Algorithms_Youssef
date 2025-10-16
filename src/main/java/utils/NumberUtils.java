@@ -104,6 +104,12 @@ public class NumberUtils {
             return true; // all elements from A found in B
         }
 
+    /**
+     * Finds the largest number in an array.
+     * @param arr the array to search
+     * @return the maximum number in the array
+     */
+
     public static int getMax(int[] arr) {
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
