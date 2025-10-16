@@ -50,7 +50,7 @@ public class NumberUtils {
 
     /**
      * decides if 2 arrays contain same elements even if it's not the same order
-     * @param a first array
+     * @param a first arrayy
      * @param b second array
      * @return true if both contain the same elements, false if not
      */
