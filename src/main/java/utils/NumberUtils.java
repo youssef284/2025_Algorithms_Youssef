@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Arrays;
+
 public class NumberUtils {
     /**
      * finds the first pos of a traget number in an array
@@ -17,7 +19,8 @@ public class NumberUtils {
 
     /**
      * Finds the last position of a target number in an array.
-     * @param arr the array to search
+     *
+     * @param arr    the array to search
      * @param target the number to find
      * @return the index of the last pos, or -1 if not found
      */
@@ -31,6 +34,7 @@ public class NumberUtils {
 
     /**
      * Decides if two arrays are identical
+     *
      * @param a first array
      * @param b second array
      * @return true if identical, false otherwise
@@ -43,4 +47,26 @@ public class NumberUtils {
         }
         return true;
     }
+
+    public static boolean isEqual(int[] a, int[] b) {
+        if (a.length != b.length) {
+            return false;
+        }
+
+        int[] copyA = Arrays.copyOf(a, a.length);
+        int[] copyB = Arrays.copyOf(b, b.length);
+
+        Arrays.sort(copyA);
+        Arrays.sort(copyB);
+
+        for (int i = 0; i < copyA.length; i++) {
+            if (copyA[i] != copyB[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
 
