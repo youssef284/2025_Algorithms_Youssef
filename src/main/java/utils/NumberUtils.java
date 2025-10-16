@@ -41,6 +41,10 @@ public class NumberUtils {
      */
 
     public static boolean isIdentical(int[] a, int[] b) {
+
+        if (a == null && b == null) return true;
+        if (a == null || b == null) return false;
+
         if (a.length != b.length) return false;
         for (int i = 0; i < a.length; i++) {
             if (a[i] != b[i]) return false;
@@ -55,6 +59,10 @@ public class NumberUtils {
      * @return true if both contain the same elements, false if not
      */
     public static boolean isEqual(int[] a, int[] b) {
+
+        if (a == null && b == null) return true;
+        if (a == null || b == null) return false;
+
         if (a.length != b.length) {
             return false;
         }
@@ -82,27 +90,40 @@ public class NumberUtils {
      * @return true if a is a subset of b, false in not
      */
     public static boolean isSubset(int[] A, int[] B) {
-            if (A.length >= B.length) {
-                return false;
-            }
+        //  Null and empty checks
+        if (A == null || B == null) return false;
+        if (A.length == 0 || B.length == 0) return false;
 
-            for (int i = 0; i < A.length; i++) {
-                boolean found = false;
-
-                for (int j = 0; j < B.length; j++) {
-                    if (A[i] == B[j]) {
-                        found = true;
-                        break;
-                    }
+        //  If identical size and contain same elements = not a subset
+        if (A.length == B.length) {
+            int[] copyA = Arrays.copyOf(A, A.length);
+            int[] copyB = Arrays.copyOf(B, B.length);
+            Arrays.sort(copyA);
+            Arrays.sort(copyB);
+            boolean same = true;
+            for (int i = 0; i < copyA.length; i++) {
+                if (copyA[i] != copyB[i]) {
+                    same = false;
+                    break;
                 }
-
-                if (!found) {
-                    return false; // one element from A not found in B
-                }
             }
-
-            return true; // all elements from A found in B
+            if (same) return false;
         }
+
+        // subset logic
+        for (int valueA : A) {
+            boolean found = false;
+            for (int valueB : B) {
+                if (valueA == valueB) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return false;
+        }
+
+        return true;
+    }
 
     /**
      * Finds the largest number in an array.
