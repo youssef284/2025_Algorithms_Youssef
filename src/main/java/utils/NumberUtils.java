@@ -82,27 +82,27 @@ public class NumberUtils {
      * @return true if a is a subset of b, false in not
      */
     public static boolean isSubset(int[] A, int[] B) {
-        if (A.length >= B.length) {
-            return false;
-        }
+            if (A.length >= B.length) {
+                return false;
+            }
 
-        for (int i = 0; i < A.length; i++) {
-            boolean found = false;
+            for (int i = 0; i < A.length; i++) {
+                boolean found = false;
 
-            for (int j = 0; j < B.length; j++) {
-                if (A[i] == B[j]) {
-                    found = true;
-                    break;
+                for (int j = 0; j < B.length; j++) {
+                    if (A[i] == B[j]) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    return false; // one element from A not found in B
                 }
             }
 
-            if (!found) {
-                return false; // one element from A not found in B
-            }
+            return true; // all elements from A found in B
         }
-
-        return true; // all elements from A found in B
-    }
 
 }
 
