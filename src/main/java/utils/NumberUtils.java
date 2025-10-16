@@ -48,6 +48,12 @@ public class NumberUtils {
         return true;
     }
 
+    /**
+     * decides if 2 arrays contain same elements even if it's not the same order
+     * @param a first array
+     * @param b second array
+     * @return true if both contain the same elements, false if not
+     */
     public static boolean isEqual(int[] a, int[] b) {
         if (a.length != b.length) {
             return false;
